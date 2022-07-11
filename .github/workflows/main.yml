@@ -32,6 +32,9 @@ jobs:
       - name: Run tests
         run: npm test -- --coverage
         
+      - name: Clean
+        run: rm -rf ./coverage
+        
       - name: Compile Code
         run: tsc
         
