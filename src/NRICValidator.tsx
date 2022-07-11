@@ -20,7 +20,7 @@ export function validate({ inputString, type = "BOTH" }: ValidatorType) {
     weight += parseInt(icArray[i]);
   }
   var offset =
-    icArray[0] == "T" || icArray[0] == "G" || icArray[0] == "M" ? 4 : 0;
+    icArray[0] == "T" || icArray[0] == "G" ? 4 : icArray[0] === "M" ? 3 : 0;
   var temp = (offset + weight) % 11;
   var st = Array("J", "Z", "I", "H", "G", "F", "E", "D", "C", "B", "A");
   var fg = Array("X", "W", "U", "T", "R", "Q", "P", "N", "M", "L", "K");

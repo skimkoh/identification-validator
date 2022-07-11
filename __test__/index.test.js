@@ -50,4 +50,8 @@ describe("Testing FIN", () => {
   it("Given a valid FIN (starting with F) with type NRIC, should return false", () => {
     expect(validate({ inputString: "F1234567N", type: "NRIC" })).toBe(false);
   });
+
+  it("Given a valid FIN (starting with F) with type NRIC, should return false", () => {
+    expect(validate({ inputString: "M1234567K" })).toBe(true);
+  });
 });
