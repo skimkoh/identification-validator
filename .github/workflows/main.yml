@@ -38,5 +38,8 @@ jobs:
       - name: Compile Code
         run: tsc
         
+      - name: Commit
+        run: git add . && git commit -m "compile codes"
+        
       - name: Update on NPM
         run: npm version patch
