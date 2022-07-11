@@ -31,3 +31,9 @@ jobs:
         
       - name: Run tests
         run: npm test -- --coverage
+        
+      - name: Compile Code
+        run: tsc
+        
+      - name: Update on NPM
+        run: npm version patch
