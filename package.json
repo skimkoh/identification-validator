@@ -1,15 +1,16 @@
 {
 	"name": "identification-validator",
 	"version": "1.1.0",
-	"description": "",
+	"description": "Library that does validation of identifications",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
 	"files": [
 		"/dist"
 	],
 	"scripts": {
-		"test": "jest"
+		"test": "vitest"
 	},
+	"type": "module",
 	"author": "",
 	"license": "ISC",
 	"devDependencies": {
@@ -20,6 +21,7 @@
 		"ts-jest": "^28.0.4",
 		"ts-node": "^10.9.2",
 		"ts-pattern": "^5.7.1",
-		"typescript": "^5.8.3"
+		"typescript": "^5.8.3",
+		"vitest": "^3.2.4"
 	}
 }

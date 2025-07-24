@@ -11,6 +11,10 @@ import {
 import { match } from "ts-pattern";
 // validator function
 export function validate({ ...props }: Readonly<IValidatorType>) {
+	if (typeof props.inputString !== "string") {
+		return false;
+	}
+
 	// if not correct length, then return false
 	if (props.inputString.length !== 9) {
 		return false;

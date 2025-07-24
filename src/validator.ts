@@ -1,17 +1,6 @@
-import { IDType } from "./interfaces";
 import { generateID, validate } from "./utils";
 
 export class Validator {
-	private value: string;
-
-	private constructor(input: string) {
-		this.value = input.toUpperCase();
-	}
-
-	get(): string {
-		return this.value;
-	}
-
 	// method to check if given string is a valid NRIC
 	static isValidNRIC(value: string): boolean {
 		return validate({ inputString: value.toUpperCase(), type: "NRIC" });
