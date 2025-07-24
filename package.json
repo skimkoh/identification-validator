@@ -1,14 +1,20 @@
 {
 	"name": "identification-validator",
-	"version": "1.1.0",
+	"version": "2.0.0",
 	"description": "Library that does validation of identifications",
-	"main": "dist/index.js",
+	"main": "dist/index.cjs",
+	"module": "dist/index.js",
 	"types": "dist/index.d.ts",
 	"files": [
 		"/dist"
 	],
 	"scripts": {
-		"test": "vitest"
+		"test": "vitest",
+		"build": "tsup"
+	},
+	"exports": {
+		"import": "./dist/index.js",
+		"require": "./dist/index.cjs"
 	},
 	"type": "module",
 	"author": "",
@@ -16,11 +22,16 @@
 	"devDependencies": {
 		"@babel/preset-env": "^7.18.2",
 		"@biomejs/biome": "^2.1.2",
+		"@semantic-release/changelog": "^6.0.3",
+		"@semantic-release/git": "^10.0.1",
+		"@semantic-release/npm": "^12.0.2",
 		"@types/jest": "^28.1.1",
 		"jest": "^28.1.1",
+		"semantic-release": "^24.2.7",
 		"ts-jest": "^28.0.4",
 		"ts-node": "^10.9.2",
 		"ts-pattern": "^5.7.1",
+		"tsup": "^8.5.0",
 		"typescript": "^5.8.3",
 		"vitest": "^3.2.4"
 	}
