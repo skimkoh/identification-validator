@@ -1,2 +1,1 @@
-export {validate} from './NRICValidator'
-
+export { Validator } from "./validator";
