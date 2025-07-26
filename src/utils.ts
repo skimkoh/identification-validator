@@ -20,7 +20,7 @@ export function validate({ ...props }: Readonly<IValidatorType>) {
 		return false;
 	}
 
-	const checksumChar = props.inputString[8]; // checksum char to check
+	const checksumChar = props.inputString[8].toUpperCase(); // checksum char to check
 	const digits = props.inputString
 		.substring(0, 8)
 		.slice(1, 8)
@@ -29,7 +29,7 @@ export function validate({ ...props }: Readonly<IValidatorType>) {
 	if (digits.some(isNaN)) return false; // return empty string if there are invalid chars
 
 	const expectedChecksum = getChecksumChar({
-		prefix: props.inputString[0] as PrefixType,
+		prefix: props.inputString[0].toUpperCase() as PrefixType,
 		idNumbers: digits,
 		type: props.type,
 	});
@@ -80,7 +80,7 @@ export function getChecksumChar({
 	return expectedChar;
 }
 
-// generate ids
+// generate ids for FIN or NRIC
 export function generateID({ type }: Readonly<IGenerateID>) {
 	// Generate seven random digits
 	const randomDigits = Array.from({ length: 7 }, () =>

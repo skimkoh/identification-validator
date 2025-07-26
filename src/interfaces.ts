@@ -1,4 +1,7 @@
 export interface IValidatorType {
+	/**
+	 * the input string to validate
+	 */
 	inputString: string;
 	type: IDType;
 }
