@@ -8,12 +8,12 @@ export class Validator {
 
 	// method to check if given string is a valid FIN
 	static isValidFIN(value: string): boolean {
-		return validate({ inputString: value, type: "FIN" });
+		return validate({ inputString: value.toUpperCase(), type: "FIN" });
 	}
 
 	// method to check if given string is a valid NRIC / FIN. Useful for those fields that checks for generic IDs
 	static isValidId(value: string): boolean {
-		return validate({ inputString: value, type: "BOTH" });
+		return validate({ inputString: value.toUpperCase(), type: "BOTH" });
 	}
 
 	// method to generate random NRIC
