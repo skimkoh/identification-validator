@@ -1,5 +1,8 @@
 # identification-validator
 
+![NPM Version](https://img.shields.io/npm/v/identification-validator)
+
+
 A simple TypeScript utility library to validate Singapore NRIC or FIN.
 
 ---
