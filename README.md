@@ -1,6 +1,6 @@
 # identification-validator
 
-![NPM Version](https://img.shields.io/npm/v/identification-validator?link=https%3A%2F%2Fwww.npmjs.com%2Fpackage%2Fidentification-validator)
+[![NPM Version](https://img.shields.io/npm/v/identification-validator)](https://www.npmjs.com/package/identification-validator)
 
 A simple TypeScript utility library to validate Singapore NRIC or FIN.
 
