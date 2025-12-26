@@ -62,3 +62,10 @@ console.log(Validator.generateFIN()) // give a random FIN, with a random startin
 | isValidId     |  `string`    | `Validator.isValidId("F1234567N")`  |Checks whether the given string is a valid NRIC/ FIN and return a boolean response |
 | generateNRIC     |  -   | `Validator.generateNRIC()`  |Generates a random NRIC and returns as a string |
 | generateFIN     |  -   | `Validator.generateFIN()`  |Generates a random FIN and returns as a string |
+
+
+---
+
+### Issues
+
+Found a bug or have a feature request? Please open an issue and provide a clear description so this can be addressed quickly.
