@@ -49,6 +49,8 @@ console.log(Validator.generateNRIC()); // give a random NRIC, with a random star
 // generate a random FIN
 console.log(Validator.generateFIN()) // give a random FIN, with a random starting valid series
 
+console.log(Validator.generateId()) // give a random ID (NRIC or FIN), with a random starting valid series
+
 ```
 
 ---
@@ -62,6 +64,7 @@ console.log(Validator.generateFIN()) // give a random FIN, with a random startin
 | isValidId     |  `string`    | `Validator.isValidId("F1234567N")`  |Checks whether the given string is a valid NRIC/ FIN and return a boolean response |
 | generateNRIC     |  -   | `Validator.generateNRIC()`  |Generates a random NRIC and returns as a string |
 | generateFIN     |  -   | `Validator.generateFIN()`  |Generates a random FIN and returns as a string |
+| generateId     |  -   | `Validator.generateId()`  |Generates a random NRIC or FIN and returns as a string
 
 
 ---
