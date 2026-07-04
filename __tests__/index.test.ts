@@ -76,4 +76,8 @@ describe("Testing generation", () => {
 	it("Generated FIN should be valid", () => {
 		expect(Validator.isValidFIN(Validator.generateFIN())).toBe(true);
 	});
+
+	it("Generated ID should be valid", () => {
+		expect(Validator.isValidId(Validator.generateId())).toBe(true);
+	});
 });

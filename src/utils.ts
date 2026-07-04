@@ -4,9 +4,9 @@ import {
 	type IValidatorType,
 	type ICheckSumChecker,
 	type PrefixType,
-	type IGenerateID,
 	NRICPrefixes,
 	FINPrefixes,
+	type IDType,
 } from "./interfaces";
 import { match } from "ts-pattern";
 // validator function
@@ -42,7 +42,7 @@ export function getChecksumChar({
 	prefix,
 	idNumbers,
 	type,
-}: Readonly<ICheckSumChecker>): string {
+}: Readonly<ICheckSumChecker>): string | undefined {
 	const weights = [2, 7, 6, 5, 4, 3, 2];
 	const st = ["J", "Z", "I", "H", "G", "F", "E", "D", "C", "B", "A"];
 	const fg = ["X", "W", "U", "T", "R", "Q", "P", "N", "M", "L", "K"];
@@ -77,41 +77,33 @@ export function getChecksumChar({
 			expectedChar = m[checksumIndex];
 		}
 	}
+
 	return expectedChar;
 }
 
-// generate ids for FIN or NRIC
-export function generateID({ type }: Readonly<IGenerateID>) {
-	// Generate seven random digits
+function generateByType(type: "NRIC" | "FIN") {
 	const randomDigits = Array.from({ length: 7 }, () =>
 		Math.floor(Math.random() * 10),
 	).join("");
+
+	const prefixes = type === "NRIC" ? NRICPrefixes : FINPrefixes;
+
+	const randomPrefix = prefixes[Math.floor(Math.random() * prefixes.length)];
+
+	const checksum = getChecksumChar({
+		prefix: randomPrefix,
+		idNumbers: randomDigits.split("").map(Number),
+		type,
+	});
+
+	return randomPrefix + randomDigits + checksum;
+}
+
+// generate ids for FIN or NRIC, or both (randomlys)
+export function generateID({ type }: Readonly<{ type: IDType }>) {
 	return match(type)
-		.with("NRIC", () => {
-			// get a random prefix
-			const randomSelectedPrefix =
-				NRICPrefixes[Math.floor(Math.random() * NRICPrefixes.length)];
-
-			const generatedChecksumChar = getChecksumChar({
-				prefix: randomSelectedPrefix,
-				idNumbers: randomDigits.split("").map(Number),
-				type: "NRIC",
-			});
-
-			return randomSelectedPrefix + randomDigits + generatedChecksumChar;
-		})
-		.with("FIN", () => {
-			// get a random prefix
-			const randomSelectedPrefix =
-				FINPrefixes[Math.floor(Math.random() * FINPrefixes.length)];
-
-			const generatedChecksumChar = getChecksumChar({
-				prefix: randomSelectedPrefix,
-				idNumbers: randomDigits.split("").map(Number),
-				type: "FIN",
-			});
-
-			return randomSelectedPrefix + randomDigits + generatedChecksumChar;
-		})
+		.with("NRIC", () => generateByType("NRIC"))
+		.with("FIN", () => generateByType("FIN"))
+		.with("BOTH", () => generateByType(Math.random() < 0.5 ? "NRIC" : "FIN"))
 		.exhaustive();
 }
