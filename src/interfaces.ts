@@ -24,10 +24,6 @@ export interface ICheckSumChecker {
 	type: IDType;
 }
 
-export interface IGenerateID {
-	type: Exclude<IDType, "BOTH">;
-}
-
 // types required for the prefixes
 export const NRICPrefixes = ["S", "T"] as const;
 export type NRICPrefixType = (typeof NRICPrefixes)[number];

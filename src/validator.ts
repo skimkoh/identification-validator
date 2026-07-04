@@ -25,4 +25,9 @@ export class Validator {
 	static generateFIN(): string {
 		return generateID({ type: "FIN" });
 	}
+
+	// method to generate random NRIC / FIN. Useful for those fields that checks for generic IDs
+	static generateId(): string {
+		return generateID({ type: "BOTH" });
+	}
 }
