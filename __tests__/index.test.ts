@@ -73,6 +73,39 @@ describe("Testing of any ID validation", () => {
 	});
 });
 
+describe("Testing of likely ID detection", () => {
+	it("Recognizes NRIC / FIN-shaped values without checking their checksum", () => {
+		const likelyIDs = ["S1234567D", "f0000000n", "  M1234567A  "];
+		likelyIDs.forEach((item) => {
+			expect(Validator.isLikelyId(item)).toBe(true);
+		});
+	});
+
+	it("Rejects values that do not have an NRIC / FIN structure", () => {
+		const unlikelyIDs = ["XXX", "X1234567D", "S123456D", "S12345678"];
+		unlikelyIDs.forEach((item) => {
+			expect(Validator.isLikelyId(item)).toBe(false);
+		});
+		expect(Validator.isLikelyId(null)).toBe(false);
+	});
+
+	it("Recognizes NRIC-shaped values and rejects FIN prefixes", () => {
+		expect(Validator.isLikelyNRIC("S0000000A")).toBe(true);
+		expect(Validator.isLikelyNRIC("  t1234567d  ")).toBe(true);
+		expect(Validator.isLikelyNRIC("F1234567N")).toBe(false);
+		expect(Validator.isLikelyNRIC("invalid")).toBe(false);
+		expect(Validator.isLikelyNRIC(null)).toBe(false);
+	});
+
+	it("Recognizes FIN-shaped values and rejects NRIC prefixes", () => {
+		expect(Validator.isLikelyFIN("F0000000A")).toBe(true);
+		expect(Validator.isLikelyFIN("  m1234567d  ")).toBe(true);
+		expect(Validator.isLikelyFIN("S1234567D")).toBe(false);
+		expect(Validator.isLikelyFIN("invalid")).toBe(false);
+		expect(Validator.isLikelyFIN(null)).toBe(false);
+	});
+});
+
 describe("Testing generation", () => {
 	it("Generated NRIC should be valid", () => {
 		expect(Validator.isValidNRIC(Validator.generateNRIC())).toBe(true);

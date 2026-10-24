@@ -36,6 +36,13 @@ console.log(Validator.isValidFIN("F1234567N")) // will return true
 
 // validation of FIN / NRIC
 console.log(Validator.isValidId("F1234567N")) // will return true
+
+// check whether a value has the expected NRIC / FIN format (does not verify its checksum)
+console.log(Validator.isLikelyId("F1234567N")) // will return true
+
+// check whether a value has the expected NRIC or FIN format, respectively
+console.log(Validator.isLikelyNRIC("S1234567D")) // will return true
+console.log(Validator.isLikelyFIN("F1234567N")) // will return true
 ```
 
 #### Generate a random NRIC / FIN
@@ -62,6 +69,9 @@ console.log(Validator.generateId()) // give a random ID (NRIC or FIN), with a ra
 | isValidNRIC   | `string`      | `Validator.isValidNRIC("S1234567D")`  | Checks whether the given string is a valid NRIC and return a boolean response|
 | isValidFIN     |  `string`    | `Validator.isValidFIN("F1234567N")`  |Checks whether the given string is a valid NRIC and return a boolean response |
 | isValidId     |  `string`    | `Validator.isValidId("F1234567N")`  |Checks whether the given string is a valid NRIC/ FIN and return a boolean response |
+| isLikelyId     |  `string`    | `Validator.isLikelyId("F1234567N")`  |Checks whether the string has the expected NRIC / FIN format and prefix; does not verify the checksum |
+| isLikelyNRIC     |  `string`    | `Validator.isLikelyNRIC("S1234567D")`  |Checks whether the string has the expected NRIC format and prefix; does not verify the checksum |
+| isLikelyFIN     |  `string`    | `Validator.isLikelyFIN("F1234567N")`  |Checks whether the string has the expected FIN format and prefix; does not verify the checksum |
 | generateNRIC     |  -   | `Validator.generateNRIC()`  |Generates a random NRIC and returns as a string |
 | generateFIN     |  -   | `Validator.generateFIN()`  |Generates a random FIN and returns as a string |
 | generateId     |  -   | `Validator.generateId()`  |Generates a random NRIC or FIN and returns as a string

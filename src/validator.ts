@@ -16,6 +16,23 @@ export class Validator {
 		return validate({ inputString: value?.trim(), type: "BOTH" });
 	}
 
+	// checks whether the value has the expected NRIC structure, without validating its checksum
+	static isLikelyNRIC(value: string): boolean {
+		return typeof value === "string" && /^[ST]\d{7}[A-Z]$/i.test(value.trim());
+	}
+
+	// checks whether the value has the expected FIN structure, without validating its checksum
+	static isLikelyFIN(value: string): boolean {
+		return typeof value === "string" && /^[FGM]\d{7}[A-Z]$/i.test(value.trim());
+	}
+
+	// checks whether the value has the expected NRIC / FIN structure, without validating its checksum
+	static isLikelyId(value: string): boolean {
+		return (
+			typeof value === "string" && /^[STFGM]\d{7}[A-Z]$/i.test(value.trim())
+		);
+	}
+
 	// method to generate random NRIC
 	static generateNRIC(): string {
 		return generateID({ type: "NRIC" });
