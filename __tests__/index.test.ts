@@ -25,12 +25,17 @@ describe("Testing invalid IDs, should fail all", () => {
 });
 
 describe("Testing of FIN validation", () => {
-	it("Given a valid FIN (starting with F), should return true", () => {
-		expect(Validator.isValidFIN("F1234567N")).toBe(true);
-	});
+	it("Valid list of FINs", () => {
+		const validIDs = [
+			"F1234567N",
+			"G1234567X",
+			"F1234567N ",
+			"    F1234567N  ",
+		];
 
-	it("Given a valid FIN (starting with T), should return true", () => {
-		expect(Validator.isValidFIN("G1234567X")).toBe(true);
+		validIDs.forEach((item) => {
+			expect(Validator.isValidFIN(item)).toEqual(true);
+		});
 	});
 
 	it("Given a invalid FIN, should return false", () => {
@@ -39,12 +44,11 @@ describe("Testing of FIN validation", () => {
 });
 
 describe("Testing NRIC validation", () => {
-	it("Given a valid NRIC (starting with S), should return true", () => {
-		expect(Validator.isValidNRIC("S1234567D")).toBe(true);
-	});
-
-	it("Given a valid NRIC (starting with T), should return true", () => {
-		expect(Validator.isValidNRIC("T2707225E")).toBe(true);
+	it("Valid list of NRICs", () => {
+		const validIDs = ["S1234567D", "T2707225E", "  S1234567D  "];
+		validIDs.forEach((item) => {
+			expect(Validator.isValidNRIC(item)).toEqual(true);
+		});
 	});
 
 	it("Given a invalid NRIC, should return false", () => {
@@ -61,6 +65,7 @@ describe("Testing of any ID validation", () => {
 			"F7863454P",
 			"M7418327U",
 			"G4707424Q",
+			"  G4707424Q  ",
 		];
 		validIDs.forEach((item) => {
 			expect(Validator.isValidId(item)).toEqual(true);
