@@ -99,7 +99,7 @@ function generateByType(type: "NRIC" | "FIN") {
 	return randomPrefix + randomDigits + checksum;
 }
 
-// generate ids for FIN or NRIC, or both (randomlys)
+// generate ids for FIN or NRIC, or both (randomly)
 export function generateID({ type }: Readonly<{ type: IDType }>) {
 	return match(type)
 		.with("NRIC", () => generateByType("NRIC"))
