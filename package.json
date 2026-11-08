@@ -1,6 +1,6 @@
 {
 	"name": "identification-validator",
-	"version": "3.0.9",
+	"version": "3.0.10",
 	"description": "TypeScript utility library to validate and generate Singapore NRIC and FIN numbers",
 	"main": "dist/index.cjs",
 	"module": "dist/index.js",

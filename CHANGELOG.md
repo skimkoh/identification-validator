@@ -1,3 +1,9 @@
+## [3.0.10](https://github.com/skimkoh/identification-validator/compare/3.0.9...3.0.10) (2026-11-08)
+
+### Workflow Changes
+
+* edited workflow ([7627a97](https://github.com/skimkoh/identification-validator/commit/7627a976cf8f552cdfbebaf04e56855898000e17))
+
 ## [3.0.9](https://github.com/skimkoh/identification-validator/compare/3.0.8...3.0.9) (2026-11-08)
 
 ### Workflow Changes
