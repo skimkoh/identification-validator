@@ -8,6 +8,7 @@
 	"files": [
 		"/dist"
 	],
+	"repository": "https://github.com/skimkoh/identification-validator.git",
 	"scripts": {
 		"test": "vitest",
 		"build": "tsup"
