@@ -1,3 +1,13 @@
+## [3.0.6](https://github.com/skimkoh/identification-validator/compare/3.0.5...3.0.6) (2026-11-22)
+
+### Bug Fixes
+
+* upgraded vite ([9ec5fdf](https://github.com/skimkoh/identification-validator/commit/9ec5fdf6a36ee8e7b6fc6a09c9d619bdd7fbc08a))
+
+### Dependencies Patch Upgrade
+
+* upgrade vite ([85d197f](https://github.com/skimkoh/identification-validator/commit/85d197f9cf9117cddfbc92e46396fd0e54af05c0))
+
 ## [3.0.5](https://github.com/skimkoh/identification-validator/compare/v3.0.4...3.0.5) (2026-11-08)
 
 ### Bug Fixes
